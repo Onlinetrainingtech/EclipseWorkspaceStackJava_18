@@ -2,7 +2,7 @@
 public class Product {
  
 	int t1=100;
-	void addProduct()
+	void addProduct()//method
 	{
 		System.out.println("This is addProduct methods.."+t1);
 	}
