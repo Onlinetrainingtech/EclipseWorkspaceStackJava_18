@@ -8,6 +8,7 @@ class Sample
 	DataInputStream dis=new DataInputStream(System.in);//to create the DataInputStream Objects
 	void input()throws IOException
 	{
+		//int empid; //local variable
 		System.out.println("Enter the empid::");
 		empid=Integer.parseInt(dis.readLine());//to get the data to the user
 		System.out.println("Enter the empname::");
