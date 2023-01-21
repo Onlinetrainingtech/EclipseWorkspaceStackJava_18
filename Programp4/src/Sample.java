@@ -13,9 +13,10 @@ public class Sample {
 
 	public static void main(String[] args) {
 		
-		Demo t1=new Demo();
-		t1.fun1(1001);
-		t1.fun2(2001,"mobile");
+		//Demo t1=new Demo();
+		//t1.fun1(1001);
+		//t1.fun2(2001,"mobile");
+		
 
 	}
 
