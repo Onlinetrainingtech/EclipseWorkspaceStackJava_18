@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class HomePage extends JFrame {
 
@@ -50,6 +52,12 @@ public class HomePage extends JFrame {
 		panel.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("AdminLogin");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				new AdminLogin().setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(162, 80, 117, 23);
 		panel.add(btnNewButton);
 		
