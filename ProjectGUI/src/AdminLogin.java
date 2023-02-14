@@ -4,9 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class AdminLogin extends JFrame {
@@ -65,17 +70,37 @@ public class AdminLogin extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Login");
+		final JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
 				try
 				{
-				    	
+				    String u1=textField.getText();	
+				    String p1=textField_1.getText();
+				    String str1="select * from adminlogin";
+				    Class.forName("com.mysql.cj.jdbc.Driver");
+				    Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/fullstack25","root","root");
+				    Statement stmt=conn.createStatement();
+				    ResultSet rs=stmt.executeQuery(str1);
+				    rs.next();
+				    String adminid=rs.getString(1);
+				    String adminpass=rs.getString(2);
+				    if(u1.equals(adminid)&&p1.equals(adminpass))
+				    {
+				    	JOptionPane.showMessageDialog(btnNewButton,"LoginSucess!!");
+				    	new AdminHomePage().setVisible(true);
+				    	//System.out.println("LoginSucess..");
+				    }
+				    else
+				    {
+				    	JOptionPane.showMessageDialog(btnNewButton,"LoginFail!!!");
+				    	//System.out.println("Login Fail!!");
+				    }
 				}
 				catch(Exception t)
 				{
-					
+					System.out.println(t);
 				}
 			}
 		});
